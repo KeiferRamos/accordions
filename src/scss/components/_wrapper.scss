@@ -1,0 +1,46 @@
+@use "../utils" as u;
+@use "../mixins" as m;
+
+.wrapper {
+  width: 500px;
+  border: u.$border;
+  padding: u.$p-md;
+
+  header {
+    border: u.$border;
+    padding: u.$p-sm;
+    margin-bottom: u.$m-lg;
+    color: u.$main-color;
+  }
+
+  .articles {
+    article {
+      background: #fff;
+      padding: u.$p-sm;
+      margin-bottom: u.$m-sm;
+
+      .content {
+        height: 0;
+        overflow: hidden;
+        color: u.$secondary-color;
+      }
+
+      .show-content {
+        height: 100%;
+        margin: u.$m-sm;
+      }
+
+      .toggle-container {
+        @include m.contentFlex(space-between);
+
+        border: u.$border;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+    width: 100%;
+  }
+}
