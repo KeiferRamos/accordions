@@ -15,7 +15,7 @@
 
   .articles {
     article {
-      background: #fff;
+      background: u.$secondary-bg;
       padding: u.$p-sm;
       margin-bottom: u.$m-sm;
 
@@ -37,10 +37,8 @@
       }
     }
   }
-}
 
-@media (max-width: 500px) {
-  .wrapper {
+  @include m.breakpoints(500px) {
     width: 100%;
   }
 }

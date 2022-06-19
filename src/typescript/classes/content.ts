@@ -1,6 +1,8 @@
 import { content } from "../interface/content";
 
 export class displayContent {
+  private selected: string | undefined = "";
+
   constructor(private content: content[]) {}
 
   format(div: HTMLElement) {
@@ -18,5 +20,31 @@ export class displayContent {
     });
 
     div.innerHTML = contentMap.join("");
+  }
+
+  toggleContent(e: Event) {
+    const id = (e.target as HTMLElement).id;
+
+    this.selected = this.selected == id ? "" : id;
+
+    const Btn = document.querySelectorAll(
+      ".toggle-btn"
+    ) as NodeListOf<HTMLElement>;
+
+    Btn.forEach(
+      (btn) => (btn.textContent = this.selected == btn.id ? "−" : "+")
+    );
+
+    const content = document.querySelectorAll(
+      ".content"
+    ) as NodeListOf<HTMLElement>;
+
+    content.forEach((el) => {
+      if (el.id == this.selected) {
+        el.classList.add("show-content");
+      } else {
+        el.classList.remove("show-content");
+      }
+    });
   }
 }
