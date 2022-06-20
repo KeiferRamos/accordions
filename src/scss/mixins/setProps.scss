@@ -1,0 +1,3 @@
+@mixin setProperty($property, $val) {
+  #{$property}: #{$val};
+}

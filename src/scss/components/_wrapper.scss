@@ -4,20 +4,15 @@
 .wrapper {
   width: 500px;
   border: u.$border;
-  padding: u.$p-md;
 
   header {
     border: u.$border;
-    padding: u.$p-sm;
-    margin-bottom: u.$m-lg;
     color: u.$main-color;
   }
 
   .articles {
     article {
       background: u.$secondary-bg;
-      padding: u.$p-sm;
-      margin-bottom: u.$m-sm;
 
       .content {
         height: 0;
@@ -27,13 +22,12 @@
 
       .show-content {
         height: 100%;
-        margin: u.$m-sm;
       }
 
       .toggle-container {
         @include m.contentFlex(space-between);
-
         border: u.$border;
+        padding: map-get(u.$sizes, "sm");
       }
     }
   }

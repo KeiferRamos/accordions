@@ -16,7 +16,7 @@ body {
   place-items: center;
   font-family: "Poppins", sans-serif;
   background: u.$main-bg;
-  padding: u.$m-sm;
+  padding: map-get(u.$sizes, "sm");
 }
 
 button {

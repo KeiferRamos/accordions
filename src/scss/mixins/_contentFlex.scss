@@ -1,10 +1,6 @@
-@use "../utils" as u;
-
 @mixin contentFlex($justify) {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: $justify;
-  gap: u.$g-md;
-  padding: u.$p-md;
 }

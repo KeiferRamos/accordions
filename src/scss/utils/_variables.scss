@@ -1,14 +1,48 @@
+@use "../mixins" as m;
+
 $main-bg: #2e4f54;
 $secondary-bg: #fff;
 $main-color: #588087;
 $secondary-color: #0c2023;
 $border: 1px solid #bebebe;
-$p-lg: 1rem;
-$p-md: 0.75rem;
-$p-sm: 0.5rem;
-$m-lg: 1rem;
-$m-md: 0.75rem;
-$m-sm: 0.5rem;
-$g-lg: 1rem;
-$g-md: 0.75rem;
-$g-sm: 0.5rem;
+
+$sizes: (
+  "lg": 1rem,
+  "md": 0.75rem,
+  "sm": 0.5rem,
+);
+
+$padding: (
+  "pt": padding-top,
+  "pl": padding-left,
+  "pb": padding-bottom,
+  "pr": padding-right,
+);
+
+$margin: (
+  "mt": margin-top,
+  "ml": margin-left,
+  "mb": margin-bottom,
+  "mr": margin-right,
+);
+
+@each $key1, $val1 in $sizes {
+  .p-#{$key1} {
+    padding: $val1;
+  }
+  .m-#{$key1} {
+    margin: $val1;
+  }
+
+  @each $key2, $val2 in $padding {
+    .#{$key2}-#{$key1} {
+      @include m.setProperty($val2, $val1);
+    }
+  }
+
+  @each $key3, $val3 in $margin {
+    .#{$key3}-#{$key1} {
+      @include m.setProperty($val3, $val1);
+    }
+  }
+}

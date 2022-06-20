@@ -8,7 +8,7 @@ export class displayContent {
   format(div: HTMLElement) {
     const contentMap = this.content.map(({ subtitle, details, id }) => {
       return `
-        <article>
+        <article class="p-sm m-sm">
           <div class="toggle-container">  
             <h3>${subtitle}</h3>
             <button class="toggle-btn" id="${id}">+</button>
